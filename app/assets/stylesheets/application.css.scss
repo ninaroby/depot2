@@ -53,7 +53,8 @@
     padding: 1em 2em;
     width: 13em;
     background: #141;
-
+    
+    //Styles the callout - extra class assignment
     #callout p {
       color: white;
       font-size: .75em;
@@ -67,6 +68,25 @@
 
     #callout {
       margin-bottom: 2em;
+    }
+    /*Fixes the display of the cart in the sidebar - see page 140 of book*/
+    form, div {
+      display: inline;
+    }
+
+    input {
+      font-size: small;
+    }
+
+    #cart {
+      font-size: smaller;
+      color: white;
+
+      table {
+        border-top: 1px dotted #595;
+        border-bottom: 1px dotted #595;
+        margin-bottom: 10px;
+      }
     }
 
     ul {

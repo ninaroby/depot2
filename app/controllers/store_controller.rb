@@ -1,17 +1,19 @@
 class StoreController < ApplicationController
-  def index
-  	@products = Product.order(:title)
+    include CurrentCart
+    before_action :set_cart
+    def index
+      	@products = Product.order(:title)
 
 
-  	if session[:counter].nil?
+      	if session[:counter].nil?
 
-  		@visit = 1
+      		@visit = 1
 
-  	else
-  		@visit = session[:counter]+1
+      	else
+      		@visit = session[:counter]+1
 
-  	end
+      	end
 
-  	session[:counter] = @visit
-end
+      	session[:counter] = @visit
+    end
 end

@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Depot</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body class="<%= controller.controller_name %>">
+	<head>
+	  <title>Pragprog Books Online</title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body class="<%= controller.controller_name %>">
 
-<div id="banner">
-	<%= image_tag("logo.png") %>
-	<%= @page_title || "Pragmatic Bookshelf" %>
-</div>
+		<div id="banner">
+		<%= image_tag("logo.png") %>
+		<%= @page_title || "Pragmatic Bookshelf" %>
+		</div>
 
-<div id="columns">
-	 <div id="side">
+		<div id="columns">
+			<div id="side">
+				<div id="cart">
+					<%= render @cart %>
+				</div>
 
-	 	<div id="callout">
-	 		<h3>Latest & Greatest!</h3>
-	 		<%= image_tag(Product.latest.image_url) %>
-	 		<p><%= Product.latest.title %></p>
-	 		<p><%= Product.latest.price%></p>
-	 	</div>
+				<div id="callout">
+					<h3>Latest & Greatest!</h3>
+					<%= image_tag(Product.latest.image_url) %>
+					<p><%= Product.latest.title %></p>
+					<p><%= Product.latest.price%></p>
+				</div>
 
-		 <ul>
-			 <li><a href="/index">Home</a></li>
-			 <li><a href="/index">Questions</a></li>
-			 <li><a href="/index">News</a></li>
-			 <li><a href="/index">Contact</a></li>
-		 </ul>
-	 </div>
-	 <div id="main">
+				<ul>
+				<li><a href="/index">Home</a></li>
+				<li><a href="/index">Questions</a></li>
+				<li><a href="/index">News</a></li>
+				<li><a href="/index">Contact</a></li>
+				</ul>
+			</div>
+			<div id="main">
+				<%= yield %>
+			</div>
+		</div>
 
-	 <%= yield %>
-	 
- </div>
- </div>
-
-</body>
+	</body>
 </html>
