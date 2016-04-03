@@ -16,9 +16,9 @@
 		<div id="columns">
 			<div id="side">
 			<br>Cart Id = <%= @cart.id %><br> 
-				<div id="cart">
+				<%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
 					<%= render @cart %>
-				</div>
+				<% end %>
 
 				<div id="callout">
 					<h3>Latest & Greatest!</h3>
